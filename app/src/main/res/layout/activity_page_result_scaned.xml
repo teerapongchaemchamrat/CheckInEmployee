@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/_7545"
+    android:orientation="vertical"
+    tools:context=".PageResultScaned">
+
+    <TextView
+        android:id="@+id/dataEm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="40dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:hint="ข้อมูลพนักงาน" />
+
+    <EditText
+        android:id="@+id/txt_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="40dp"
+        android:hint="รหัสพนักงาน"
+        android:textSize="25dp"
+        android:inputType="number"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="40dp"
+        android:hint="ชื่อพนักงาน"
+        android:textSize="25dp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/txt_department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="40dp"
+        android:hint="แผนก"
+        android:textSize="25dp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/txt_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="40dp"
+        android:hint="สถานที่ปฏิบัติ"
+        android:textSize="25dp"
+        android:textColor="#000000"/>
+
+    <!--    <Spinner-->
+    <!--        android:id="@+id/spinner"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content" />-->
+
+    <Button
+        android:id="@+id/savebtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="60dp"
+        android:textSize="20dp"
+        android:text="บันทึกลงฐานข้อมูล" />
+
+
+    <Button
+        android:id="@+id/scanEmployee"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/btn_background"
+        android:layout_marginBottom="20dp"
+        android:text="สแกนข้อมูลพนักงาน"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/adddata"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/btn_background"
+        android:text="เพิ่มข้อมูลพนักงาน"
+        android:textSize="20dp"
+        android:layout_marginBottom="80dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/responseTV"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:hint="result: "
+        android:textColor="#000000"/>
+
+
+</LinearLayout>
