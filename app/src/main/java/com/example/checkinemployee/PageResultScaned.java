@@ -82,12 +82,46 @@ public class PageResultScaned extends AppCompatActivity {
                 //check data in Textview
                 String input = dataPerson.getText().toString();
                 if(input.contains("||")) {
-                    String[] split = input.split("\\|\\|");
-                    EmNumber.setText(split[0]);
-                    EmName.setText(split[1]);
-                    EmDepartment.setText(split[2]);
-                    dataPerson.setText("");
-                } else {
+                    String[] inputArr = input.split("\\|\\|");
+                    for (String str : inputArr) {
+                        char firstChar = str.charAt(0);
+                        if (Character.isDigit(firstChar)) {
+                            EmNumber.setText(inputArr[0]);
+                            String emnum = EmNumber.getText().toString();
+                            emnum = emnum.trim();
+                            EmNumber.setText(emnum);
+
+                            EmName.setText(inputArr[1]);
+                            String emname = EmName.getText().toString();
+                            emname = emname.trim();
+                            EmName.setText(emname);
+
+                            EmDepartment.setText(inputArr[2]);
+                            String emdepart = EmDepartment.getText().toString();
+                            emdepart = emdepart.trim();
+                            EmDepartment.setText(emdepart);
+
+                            dataPerson.setText("");
+                        } else if (Character.isLetter(firstChar)) {
+                            EmNumber.setText(inputArr[2]);
+                            String emnum = EmNumber.getText().toString();
+                            emnum = emnum.trim();
+                            EmNumber.setText(emnum);
+
+                            EmName.setText(inputArr[0]);
+                            String emname = EmName.getText().toString();
+                            emname = emname.trim();
+                            EmName.setText(emname);
+
+                            EmDepartment.setText(inputArr[1]);
+                            String emdepart = EmDepartment.getText().toString();
+                            emdepart = emdepart.trim();
+                            EmDepartment.setText(emdepart);
+
+                            dataPerson.setText("");
+                        }
+                    }
+                }else {
                     EmNumber.setText(dataPerson.getText());
                     dataPerson.setText("");
                 }
@@ -122,15 +156,13 @@ public class PageResultScaned extends AppCompatActivity {
     //ส่งข้อมูล sql ผ่าน api
     private void postData (String employeeID, String employeeName, String Department, String Location){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://49.0.65.4:3002/api/")
+                .baseUrl("http://192.168.10.123:3000/api/")
                 .addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
         DataModal modal = new DataModal(employeeID, employeeName, Department, Location );
         Call<DataModal> call = retrofitAPI.createPost(modal);
-
-
         call.enqueue(new Callback<DataModal>() {
             @Override
             public void onResponse(Call<DataModal> call, Response<DataModal> response) {
