@@ -28,9 +28,7 @@ public class PageResultScaned extends AppCompatActivity {
     TextView dataPerson, EmName, EmDepartment, EmLocation, responseTV;
     EditText EmNumber;
     Button btn_save, btn_scanEm, btn_adddata;
-    //Spinner EmLocation;
-    //String[] LocationData = {"จุด A", "จุด B", "จุด C", "จุด D"};
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +36,6 @@ public class PageResultScaned extends AppCompatActivity {
 
         dataPerson = findViewById(R.id.dataEm);
         responseTV = findViewById(R.id.responseTV);
-
 
         EmNumber = findViewById(R.id.txt_number);
         EmName = findViewById(R.id.txt_name);
@@ -48,12 +45,6 @@ public class PageResultScaned extends AppCompatActivity {
         Intent receiverIntent = getIntent();
         String receivedValue = receiverIntent.getStringExtra("KEY_SENDER");
         EmLocation.setText(receivedValue);
-
-        //EmLocation = findViewById(R.id.spinner);
-
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_list_item_activated_1, LocationData);
-//        EmLocation.setAdapter(adapter);
 
         btn_save = findViewById(R.id.savebtn);
         btn_save.setOnClickListener(new View.OnClickListener() {
@@ -167,11 +158,9 @@ public class PageResultScaned extends AppCompatActivity {
             @Override
             public void onResponse(Call<DataModal> call, Response<DataModal> response) {
                 responseTV.setText("บันทึกข้อมูลสำเร็จ");
-                //Toast.makeText(PageResultScaned.this, "Data added to API", Toast.LENGTH_SHORT).show();
                 EmNumber.setText("");
                 EmName.setText("");
                 EmDepartment.setText("");
-                //responseTV.setText("Name : " + response.body().getEmployeeName() + "\n" + "Location : " + response.body().getLocation());
             }
             @Override
             public void onFailure(Call<DataModal> call, Throwable t) {
